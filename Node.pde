@@ -72,7 +72,7 @@ final class Node {
         return moves[col];
     }
     
-    private int getScore(int currentColor) {
+    int getScore(int currentColor) {
       if (currentColor == Game.BLUE) {
         return 1;
       } else {

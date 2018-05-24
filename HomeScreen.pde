@@ -8,4 +8,22 @@ class HomeScreen extends Screen {
     pvc.draw();
     pups.draw();
   }
+  
+  void mouseClicked() {
+    if (pvp.isInside(mouseX, mouseY)) {
+      clearScreen();
+      screen = new PVCGameScreen();
+    } else if (pvc.isInside(mouseX, mouseY)) {
+      clearScreen();
+      screen = new PVCGameScreen();
+    } else if (pups.isInside(mouseX, mouseY)) {
+      clearScreen();
+      screen = new PVCGameScreen();
+    }
+  }
+  
+  void clearScreen() {
+    fill(#FFFFFF);
+    rect(0, 0, width, height);
+  }
 }
