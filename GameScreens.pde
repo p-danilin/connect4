@@ -1,9 +1,3 @@
-class Screen {
-  void draw() {}
-  void think() {}
-  void mouseClicked() {}
-}
-
 class GameScreen extends Screen {
   static final int BACKGROUND = #F3EFE0;
   static final String PLAYER_MOVE = "Please make your move";
@@ -13,8 +7,8 @@ class GameScreen extends Screen {
   String message = null;
   boolean isThinking = false;
   
-  GameScreen(Game game) {
-    this.game = game;
+  GameScreen() {
+    this.game = new Game();
     message = PLAYER_MOVE;
   }
   

@@ -1,5 +1,3 @@
-Game game = new Game();
-
 Screen screen;
 MinMax minMax = new MinMax();
 
@@ -8,7 +6,7 @@ void setup() {
   size(1000, 850);
 
 
-  screen = new GameScreen(game);
+  screen = new HomeScreen();
 }
 
 void draw() {
