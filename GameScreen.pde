@@ -1,7 +1,10 @@
 class GameScreen extends Screen {
   static final int BACKGROUND = #F3EFE0;
+  static final int TURQ_COL = #217C7E;
   static final String PLAYER_MOVE = "Please make your move";
   
+  Button home = new Button(750, 60, 100, 50, TURQ_COL, "Home");
+    
   Game game;
   int moveNum = 1;
   String message = null;
@@ -11,10 +14,11 @@ class GameScreen extends Screen {
     fill(#FFFFFF);
     rect(95, 75, 700, 35);
     if (message != null) {
-      fill(#217C7E);
+      fill(TURQ_COL);
       textSize(32);
       text(message, 100, 100);
     }
+    home.draw();
   }
   
   void drawBoard() {
@@ -48,5 +52,15 @@ class GameScreen extends Screen {
         return i;
     }
     return -1;
-  } 
+  }
+    
+    boolean checkHomeButton() {
+      if (home.isInside(mouseX, mouseY)) {
+        clearScreen();
+        screen = new HomeScreen();
+        return true;
+      } else {
+        return false;
+      }
+    }  
 }

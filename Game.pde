@@ -13,7 +13,7 @@ class Game {
      * Board:
      *    rows:
      *        5 []
-     *        4 []
+     *        4 []  
      *           ......
      *        1 []
      *        0 [] [] [] ..... []
@@ -167,4 +167,5 @@ class Game {
     int getCell(int col, int row) {
         return cells[col][row];
     }
+
 }

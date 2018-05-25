@@ -12,7 +12,9 @@ class PVCGameScreen extends GameScreen {
   }
   
   void mouseClicked() {
-    println(">>> mouseClicked");
+    if (checkHomeButton()) {
+      return;
+    }
     if (isThinking) {
       println("<<< mouseClicked - thinking");    
       return;
@@ -26,7 +28,7 @@ class PVCGameScreen extends GameScreen {
         return;
       } else {
         if (game.dropCoin(col, Game.RED)) {
-          message = "You are the champion, my friend!";
+          screen = new EndScreen(game, "You are the champion, my friend!");
           return;
         }
         moveNum++;
@@ -62,8 +64,8 @@ class PVCGameScreen extends GameScreen {
       Node node = minMax.calculateTree(gameCopy, Game.BLUE, 0, maxDepth);
       println("<<< calculateTree");
       if (node.getBestMove() == -1) {
-        message = "It's a draw! Let's stay friends...";
-        return;
+          screen = new EndScreen(game, "It's a draw, you will never beat me!");
+          return;
       } else {
         col = node.getBestMove();
         // select random move with unknown result or a draw...
@@ -74,7 +76,8 @@ class PVCGameScreen extends GameScreen {
     }
     println(">>> droppng coin to " + col);
     if (game.dropCoin(col, Game.BLUE)) {
-      message = "I win, you lose!";
+      screen = new EndScreen(game, "I win, you loose!");
+      return;
     } else {
       message = PLAYER_MOVE;
     }

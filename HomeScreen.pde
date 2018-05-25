@@ -1,7 +1,11 @@
 class HomeScreen extends Screen {
-  Button pvp = new Button(10, 10, "Two Players Mode");
-  Button pvc = new Button(10, 70, "One Player Mode");
-  Button pups = new Button(10, 130, "Power Ups Mode");
+  static final int BTN_WIDTH = 300;
+  static final int BTN_HEIGHT = 50;
+  static final int BTN_COLOR = #F3EFE0;
+  
+  Button pvp = new Button(10, 10, BTN_WIDTH, BTN_HEIGHT, BTN_COLOR, "Two Players Mode");
+  Button pvc = new Button(10, 70, BTN_WIDTH, BTN_HEIGHT, BTN_COLOR, "One Player Mode");
+  Button pups = new Button(10, 130, BTN_WIDTH, BTN_HEIGHT, BTN_COLOR, "Power Ups Mode");
 
   void draw() {
     pvp.draw();
@@ -12,7 +16,7 @@ class HomeScreen extends Screen {
   void mouseClicked() {
     if (pvp.isInside(mouseX, mouseY)) {
       clearScreen();
-      screen = new PVCGameScreen();
+      screen = new PVPGameScreen();
     } else if (pvc.isInside(mouseX, mouseY)) {
       clearScreen();
       screen = new PVCGameScreen();
@@ -21,9 +25,5 @@ class HomeScreen extends Screen {
       screen = new PVCGameScreen();
     }
   }
-  
-  void clearScreen() {
-    fill(#FFFFFF);
-    rect(0, 0, width, height);
-  }
+
 }

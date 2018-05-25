@@ -4,8 +4,7 @@ MinMax minMax = new MinMax();
 void setup() {
   background (255);
   size(1000, 850);
-
-
+  
   screen = new HomeScreen();
 }
 
@@ -20,4 +19,10 @@ void mouseReleased() {
 
 void think() {
   screen.think();
+}
+
+  
+void clearScreen() {
+  fill(#FFFFFF);
+  rect(0, 0, width, height);
 }
