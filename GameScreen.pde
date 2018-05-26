@@ -1,13 +1,15 @@
+//gamescreen draws the gamescreen and checks for clicks in the correct columns
 class GameScreen extends Screen {
   static final int BACKGROUND = #F3EFE0;
   static final int TURQ_COL = #217C7E;
   static final String PLAYER_MOVE = "Please make your move";
   
-  Button home = new Button(750, 60, 100, 50, TURQ_COL, "Home");
+  Button home = new Button(750, 60, 100, 50, #F3EFE0, "Home");
     
   Game game;
   int moveNum = 1;
   String message = null;
+  int finalGameStatus = 0;
   
   void displayMessage() {
     noStroke();
@@ -55,7 +57,7 @@ class GameScreen extends Screen {
   }
     
     boolean checkHomeButton() {
-      if (home.isInside(mouseX, mouseY)) {
+      if (home.isInside()) {
         clearScreen();
         screen = new HomeScreen();
         return true;
@@ -63,4 +65,6 @@ class GameScreen extends Screen {
         return false;
       }
     }  
+    
+
 }

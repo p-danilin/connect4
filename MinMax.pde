@@ -1,3 +1,4 @@
+//MinMax goes through each move to a certain depth, checking for any possible wins for the computer, or losses that it can prevent. It also prioritizes any drawable moves over losing ones
 class MinMax {
   static final int WIN = 10;
   
@@ -33,7 +34,7 @@ class MinMax {
     }
     return node;
   }
-
+  //changes colour of the coin
   private int changeColor(int currentColor) {
     if (currentColor == Game.BLUE) {
       return Game.RED;

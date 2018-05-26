@@ -1,3 +1,12 @@
+/*** Button ******************************************
+ * Purpose: makes buttons following parameters        *
+ * Parameters: x - top left x coordinate              *
+ *             y - top left y coordinate              *
+ *             w - bottom right x coordinate          *
+ *             h - bottom right y coodinate           *
+ *             cc - colour of the box                 *
+ * Returns: none                                      *
+ ******************************************************/
 class Button {
   int x;
   int y;
@@ -5,7 +14,7 @@ class Button {
   int w;
   String text;
   int cc;
-  
+
   Button(int x, int y, int w, int h, int cc, String text) {
     this.x = x;
     this.y = y;
@@ -14,17 +23,21 @@ class Button {
     this.cc = cc;
     this.text = text;
   }
-  
+
   void draw() {
     fill(cc);
-    stroke(0);
+    stroke(GameScreen.TURQ_COL);
     rect(x, y, w, h);
     textSize(32);
-    fill(0);
+    fill(GameScreen.TURQ_COL);
     text(text, x+5, y+35);
   }
-  
-  boolean isInside(int mx, int my) {
+  /*** isInside ******************************************
+   * Purpose: responds wether mouse is in the button or  *
+   *          not                                        *
+   * Returns: boolean                                    *
+   ******************************************************/
+  boolean isInside() {
     if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
       return true;
     } else { 

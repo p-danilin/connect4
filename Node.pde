@@ -1,3 +1,4 @@
+// node goes through 
 final class Node {
     private int minMaxScore;
     private int depth;
@@ -24,7 +25,7 @@ final class Node {
         return bestMove;
     }
 
-     void calculateBestMove(Node[] moves, boolean isDraw, int branchDepth, int currentColor) { //<>// //<>//
+     void calculateBestMove(Node[] moves, boolean isDraw, int branchDepth, int currentColor) { //<>//
         if (isDraw) {
             this.minMaxScore = 1;
             this.depth = branchDepth;
