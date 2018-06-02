@@ -213,7 +213,7 @@ class Game {
 
     // drop cells starting from row + 2 and up to min (0, row - 1);
     boolean isWin = false;
-    emptyTops[col] = max(0, row - 1);
+    emptyTops[col] = min(emptyTops[col], max(0, row - 1));
     for (int rr = row + 2; rr < Game.ROWS && cells[col][rr] != EMPTY; rr++) {
       isWin = isWin || dropCoin(col, cells[col][rr]);
       cells[col][rr] = EMPTY;

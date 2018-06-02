@@ -45,18 +45,19 @@ class PupsGameScreen extends GameScreen {
         return;
       } else {
         if (currentPUP == C4_PUP) {
-          println("c4 move");
+          println("dropping c4 at " + col);
           if (game.dropC4(col)) {
             screen = new EndScreen(game, winMessage(), currentColor);
             return;
           }
         } else if (currentPUP == BEDBUGS_PUP) {
-          println("bedbugs move");
+          println("dropping bedbugs at " + col);
           if (game.dropBedBugs(col, currentColor)) {
             screen = new EndScreen(game, winMessage(), currentColor);
             return;
           }
         } else if (game.dropCoin(col, currentColor)) {
+          println("dropping coin at " + col);
           screen = new EndScreen(game, winMessage(), currentColor);
           return;
         }
@@ -80,7 +81,7 @@ class PupsGameScreen extends GameScreen {
     if (currentPUP != C4_PUP && currentPUP != BEDBUGS_PUP) {
       currentPUP = 0;
     }
-
+    printGame(game);
   }
 
 
